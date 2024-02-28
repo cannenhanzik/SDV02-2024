@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "CheckingAccount.h"
 #include "SavingsAccount.h"
 #include "CreditAccount.h"
@@ -23,9 +24,30 @@ int main()
     _CrtSetBreakAlloc(-1); // block of mem to find leak
     _CrtDumpMemoryLeaks();
 
+    
+
+    float checkingBalance = 0;
+    float savingBalance = 0;
+    float creditBalance = 0;
+
+    // Read balances from file 
+    ifstream inFile("account_balances.bin", ios::binary);
+    if (inFile.is_open()) {
+        inFile.read(reinterpret_cast<char*>(&checkingBalance), sizeof(checkingBalance));
+        inFile.read(reinterpret_cast<char*>(&savingBalance), sizeof(savingBalance));
+        inFile.read(reinterpret_cast<char*>(&creditBalance), sizeof(creditBalance));
+        inFile.close();
+    }
+   
+
     BaseAccount* checking = new CheckingAccount();
     BaseAccount* savings = new SavingsAccount();
     BaseAccount* credit = new CreditAccount();
+
+    // Deposit into 
+    Deposit(checking, checkingBalance);
+    Deposit(savings, savingBalance);
+    Deposit(credit, creditBalance);
 
     int choice;
     float amount;
@@ -82,6 +104,22 @@ int main()
         }
     }
 
+    
+
+    ofstream outFile("account_balances.bin", ios::binary);
+    if (outFile.is_open()) {
+        // Write the balance of each account to the file
+        float checkingBalance = checking->GetBalance();
+        float savingsBalance = savings->GetBalance();
+        float creditBalance = credit->GetBalance();
+
+        outFile.write(reinterpret_cast<const char*>(&checkingBalance), sizeof(checkingBalance));
+        outFile.write(reinterpret_cast<const char*>(&savingsBalance), sizeof(savingsBalance));
+        outFile.write(reinterpret_cast<const char*>(&creditBalance), sizeof(creditBalance));
+
+        outFile.close();
+    }
+    else { cout << "Failed to open file for writing." << endl; }
     // Cleanup
     delete checking;
     delete savings;
