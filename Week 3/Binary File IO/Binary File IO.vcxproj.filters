@@ -15,33 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Week 2\Inheritance\BaseAccount.cpp">
+    <ClCompile Include="Binary File IO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Week 2\Inheritance\CheckingAccount.cpp">
+    <ClCompile Include="BaseAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Week 2\Inheritance\CreditAccount.cpp">
+    <ClCompile Include="CheckingAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Week 2\Inheritance\Inheritance.cpp">
+    <ClCompile Include="CreditAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Week 2\Inheritance\SavingsAccount.cpp">
+    <ClCompile Include="SavingsAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Week 2\Inheritance\BaseAccount.h">
+    <ClInclude Include="BaseAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Week 2\Inheritance\CheckingAccount.h">
+    <ClInclude Include="CheckingAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Week 2\Inheritance\CreditAccount.h">
+    <ClInclude Include="CreditAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Week 2\Inheritance\SavingsAccount.h">
+    <ClInclude Include="SavingsAccount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

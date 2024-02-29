@@ -1,0 +1,6 @@
+Write your debugging steps and thought process here (This is part of your grade)
+- in item, m_value is allocated twice w/o being deallocated.
+- Inventory class is creating items without destructing them leading to memory leaks
+- Use of new in Inventory::Print: Allocating memory just to hold the size of items in the inventory is unnecessary and results in a memory leak. Should directly use m_Items.size() without dynamic memory allocation.
+- Redundant Memory Allocations in Item::Print: Similar to Inventory::Print, dynamically allocating memory to hold a value that is already stored and accessible is unnecessary and leaks memory.
+- 
